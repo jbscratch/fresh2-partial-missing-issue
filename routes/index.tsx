@@ -2,6 +2,7 @@ import { useSignal } from "@preact/signals";
 import { Head } from "fresh/runtime";
 import { define } from "../utils.ts";
 import Counter from "../islands/Counter.tsx";
+import { NavButton } from "../components/NavButton.tsx";
 
 export default define.page(function Home(ctx) {
   const count = useSignal(3);
@@ -28,13 +29,19 @@ export default define.page(function Home(ctx) {
         </p>
         <Counter count={count} />
 
-        <a
-          class="p-4 border border-gray-500 bg-gray-300"
-          href="/"
-          f-partial="/message-partial"
-        >
-          Show Server Message
-        </a>
+        <div class="flex flex-col gap-4">
+          <a
+            class="p-4 border border-gray-500 bg-gray-300"
+            href="/"
+            f-partial="/message-partial"
+          >
+            Show Server Message via simple a-tag
+          </a>
+
+          <NavButton href="/" fPartial="/message-partial">
+            Show Server Message via NavButton
+          </NavButton>
+        </div>
       </div>
     </div>
   );
