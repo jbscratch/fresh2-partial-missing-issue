@@ -33,12 +33,12 @@ export default define.page(function Home(ctx) {
           <a
             class="p-4 border border-gray-500 bg-gray-300"
             href="/"
-            f-partial="/message-partial"
+            f-partial="/partials/message-partial"
           >
             Show Server Message via simple a-tag
           </a>
 
-          <NavButton href="/" fPartial="/message-partial">
+          <NavButton href="/" fPartial="/partials/message-partial">
             Show Server Message via NavButton
           </NavButton>
         </div>

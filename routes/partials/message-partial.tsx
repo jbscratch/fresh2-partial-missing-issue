@@ -1,5 +1,5 @@
 import { Partial } from "fresh/runtime";
-import { define } from "../utils.ts";
+import { define } from "../../utils.ts";
 import { RouteConfig } from "https://jsr.io/@fresh/core/2.1.1/src/types.ts";
 
 // We only want to render the content, so disable
