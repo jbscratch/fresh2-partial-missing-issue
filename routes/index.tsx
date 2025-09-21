@@ -27,6 +27,14 @@ export default define.page(function Home(ctx) {
           <code class="mx-2">./routes/index.tsx</code> file, and refresh.
         </p>
         <Counter count={count} />
+
+        <a
+          class="p-4 border border-gray-500 bg-gray-300"
+          href="/"
+          f-partial="/message-partial"
+        >
+          Show Server Message
+        </a>
       </div>
     </div>
   );
