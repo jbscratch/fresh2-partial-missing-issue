@@ -21,7 +21,6 @@ export default define.page(async (ctx) => {
       <form
         method="POST"
         class="flex flex-col gap-4 p-4"
-        action="/form-w-internal-action-wo-partial"
       >
         <h1 class="text-3xl font-bold">Form Test with Internal Action</h1>
         <label for="name" class="text-gray-500">Name</label>
