@@ -4,17 +4,15 @@ import { define } from "../utils.ts";
 /**
  * Result: using a form with an internal action with partials enabled
  * will not work with 2 partials with the same name in the response.
+ *
+ * Test 2: using a form with an internal action which does not return a partial,
+ * but a partial is available in _app.tsx
  */
 export default define.page(async (ctx) => {
+  let name = "";
   if (ctx.req.method === "POST") {
     const formData = await ctx.req.formData();
-    const name = formData.get("name");
-
-    return (
-      <Partial name="messages">
-        <div>Form submitted with name: {name}</div>
-      </Partial>
-    );
+    name = formData.get("name")?.toString() ?? "";
   }
 
   // bjesuiter: Form POST action will automatically be sent with partials enabled
@@ -23,7 +21,7 @@ export default define.page(async (ctx) => {
       <form
         method="POST"
         class="flex flex-col gap-4 p-4"
-        f-partial="/form-w-internal-action"
+        action="/form-w-internal-action-wo-partial"
       >
         <h1 class="text-3xl font-bold">Form Test with Internal Action</h1>
         <label for="name" class="text-gray-500">Name</label>
@@ -35,6 +33,10 @@ export default define.page(async (ctx) => {
         <button type="submit" class="p-4 border border-gray-500 bg-gray-100">
           Submit
         </button>
+
+        {name && (
+          <p>Form submitted with name: {name} at {new Date().toISOString()}</p>
+        )}
       </form>
     </div>
   );
